@@ -1,0 +1,24 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #7d72b7;
+
+body {
+  color: #000000 !important;
+}
+
+.index {
+  font-family: "Whitney SSm A", "Whitney SSm B";
+  color: #000000;
+  font-style: italic;
+  background-color: $primary-color;
+  padding: 10px;
+
+  .title {
+    font-style: normal;
+    text-align: center;
+  }
+}
