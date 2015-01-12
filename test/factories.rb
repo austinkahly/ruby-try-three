@@ -7,6 +7,6 @@ FactoryGirl.define do
   factory :comment do
     commenter "Commenter's Name"
     body "Their comment"
-    article { build(:article) }
+    article_id { create(:article).id }
   end
 end
