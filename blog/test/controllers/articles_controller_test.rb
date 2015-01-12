@@ -24,7 +24,5 @@ class ArticlesControllerTest < ActionController::TestCase
       post :create, article: {title: 'Hello there', text: 'This is my first article.'}
     end
     assert_redirected_to article_path(assigns(:article))
-    #puts flash[:notice]
-    #assert_equal 'Article was successfully created.', flash[:notice]
   end
 end
