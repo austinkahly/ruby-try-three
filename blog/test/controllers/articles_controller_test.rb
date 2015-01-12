@@ -8,8 +8,9 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test "should create article" do
+    article_attr = attributes_for(:article)
     assert_difference('Article.count') do
-      post :create, article: {title: 'This is an updated title?', text: 'Some text'}
+      post :create, article: article_attr
     end
     assert_redirected_to article_path(assigns(:article))
   end
@@ -20,8 +21,9 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test "should create article 2" do
+    article_attr = attributes_for(:article)
     assert_difference('Article.count') do
-      post :create, article: {title: 'Hello there', text: 'This is my first article.'}
+      post :create, article: article_attr
     end
     assert_redirected_to article_path(assigns(:article))
   end
