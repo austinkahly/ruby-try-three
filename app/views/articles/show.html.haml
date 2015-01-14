@@ -6,7 +6,9 @@
     %strong Text:
     = @article.text
   %h2 Comments
-  = render @article.comments
+  -for comment in @article.comments
+    -if comment.persisted?
+      =render comment
   %h2 Add a comment:
   = render 'comments/form'
   = link_to 'Edit Article', edit_article_path(@article)
