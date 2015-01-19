@@ -1,0 +1,4 @@
+# Ignore
+/tmp
+/log/*.log
+*.sqlite3

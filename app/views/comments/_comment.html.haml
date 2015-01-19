@@ -5,5 +5,5 @@
   %strong Comment:
   = comment.body
 %p
-  - if user_signed_in?
+  - if can? :destroy, Comment, user_id: current_user.id
     = link_to 'Destroy Comment', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }

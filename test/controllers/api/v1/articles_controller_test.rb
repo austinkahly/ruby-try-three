@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class Api::V1::ArticlesControllerTest < ActionController::TestCase
+
+
   test "should get index"  do
     create(:article)
     create(:article)

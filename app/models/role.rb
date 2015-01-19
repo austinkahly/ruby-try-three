@@ -1,3 +1,5 @@
 class Role < ActiveRecord::Base
-  has_many :user
+  ADMIN = "admin"
+  REGISTERED = "registered"
+  has_many :users, inverse_of: :role
 end

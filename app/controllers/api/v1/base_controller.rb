@@ -8,7 +8,6 @@ class Api::V1::BaseController < ApplicationController
 
   def create
     model = resource_klass.new(model_params)
- 
     if model.save
       render json: model
     else

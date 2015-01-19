@@ -9,12 +9,6 @@ class CommentsControllerTest < ActionController::TestCase
     end
   end
 
-  test "should validate commenter" do
-    comment_attr = attributes_for(:comment, commenter: nil)
-    comment = post :create, comment: comment_attr, article_id: comment_attr[:article_id]
-    assert_not comment["id"]
-  end
-
   test "should destroy comment" do
     comment = create(:comment)
 

@@ -9,7 +9,7 @@
   -for comment in @article.comments
     -if comment.persisted?
       =render comment
-  -if user_signed_in?
+  -if can? :update, Article
     %h2 Add a comment:
     = render 'comments/form'
     -if can? :create, Article
