@@ -1,7 +1,8 @@
 .index
   .title
     %h1 Listing Articles 
-  = link_to 'New article', new_article_path
+  -if can? :create, Article
+    = link_to 'New article', new_article_path
   %table
     %tr
       %th Title
@@ -12,5 +13,12 @@
         %td= article.title
         %td= article.text
         %td= link_to 'Show', article_path(article)
-        %td= link_to 'Edit', edit_article_path(article)
-        %td= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+        -if can? :create, Article
+          %td= link_to 'Edit', edit_article_path(article)
+          %td= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+  - if user_signed_in?
+    %td= link_to 'Sign Out', destroy_user_session_path, method: :delete
+  - else
+    %td= link_to 'Sign In With Facebook', user_omniauth_authorize_path(:facebook)
+    %td= link_to 'Sign In', new_user_session_path
+    %td= link_to 'Sign Up', new_user_registration_path

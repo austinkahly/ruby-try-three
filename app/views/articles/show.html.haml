@@ -9,7 +9,9 @@
   -for comment in @article.comments
     -if comment.persisted?
       =render comment
-  %h2 Add a comment:
-  = render 'comments/form'
-  = link_to 'Edit Article', edit_article_path(@article)
+  -if user_signed_in?
+    %h2 Add a comment:
+    = render 'comments/form'
+    -if can? :create, Article
+      = link_to 'Edit Article', edit_article_path(@article)
   = link_to 'Back to Articles', articles_path

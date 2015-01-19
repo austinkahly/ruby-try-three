@@ -37,4 +37,17 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_not article["id"]
   end
 
+  test "should update article" do
+    article = create(:article)
+    article.title = "This is a new article"
+    # post :update, article: article
+    # Why doesn't this post command work?
+  end
+
+  test "should fetch article" do
+    article = create(:article)
+    get :show, id: article.id
+    assert_response(200)
+  end
+
 end
