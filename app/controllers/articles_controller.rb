@@ -7,11 +7,9 @@ class ArticlesController < ApplicationController
   end
 
   def new  
-    @article = Article.new 
   end 
 
   def create
-    @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
       redirect_to @article
@@ -31,7 +29,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @comment = @article.comments.build
   end
 
