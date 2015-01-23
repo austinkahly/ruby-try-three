@@ -23,4 +23,14 @@ class CommentsControllerTest < ActionController::TestCase
     assert_not comment["id"]
   end
 
+  test "registered user cannot delete comment they did not create" do
+    article = create(:article)
+    comment = create(:comment, article_id: article.id, user_id: @user.id)
+    sign_out @user
+    user = create(:user)
+    sign_in user
+    assert_raises(CanCan::AccessDenied) do
+      delete :destroy, id: comment.id, article_id: comment[:article_id]
+    end
+  end
 end

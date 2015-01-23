@@ -29,6 +29,6 @@ FactoryGirl.define do
   factory :comment do
     body "Their comment"
     article_id { create(:article).id }
-    user_id { create(:user).id}
+    user_id { create(:admin).id}
   end
 end

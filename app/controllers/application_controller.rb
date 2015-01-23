@@ -15,12 +15,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  rescue_from CanCan::AccessDenied do |error|
-    puts "rescued CanCan for user #{current_user.email} with role #{current_user.role.try(:name)}"
-    puts "\t for resource #{(@comment||@article).inspect} #{current_user.inspect}"
-    raise
-  end
-
   protected
 
   def resource_klass
