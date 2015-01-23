@@ -2,3 +2,5 @@ tmp/*
 *.sqlite3
 log/*
 start.sh
+
+tmp/pids/server.pid

@@ -5,18 +5,30 @@ FactoryGirl.define do
   end
 
   factory :user do
-    
+    sequence :email do |n| 
+      "person#{n}@example.com"
+    end
+    password "12345678"
+    role {Role.find_by_name(Role::REGISTERED)}
+
+
+    factory :admin do
+      sequence :email do |n| 
+        "admin#{n}@example.com"
+      end
+      role {Role.find_by_name(Role::ADMIN)}
+    end
   end
   
   factory :article do
     title "Title"
     text "Body of article"
+    user_id { create(:admin).id}
   end
 
   factory :comment do
-    commenter "Commenter's Name"
     body "Their comment"
     article_id { create(:article).id }
-
+    user_id { create(:admin).id}
   end
 end

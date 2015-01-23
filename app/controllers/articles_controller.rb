@@ -1,16 +1,17 @@
 class ArticlesController < ApplicationController
 
+  load_and_authorize_resource
+
   def index
     @articles = Article.all
   end
 
   def new  
-    @article = Article.new 
+
   end 
 
   def create
-    @article = Article.new(article_params)
- 
+    @article.user_id = current_user.id
     if @article.save
       redirect_to @article
     else
@@ -29,7 +30,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     @comment = @article.comments.build
   end
 

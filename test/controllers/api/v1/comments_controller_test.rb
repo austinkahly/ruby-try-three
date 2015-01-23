@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class Api::V1::CommentsControllerTest < ActionController::TestCase
-  
+
   test "should get index"  do
-    create(:comment)
-    create(:comment)
-    create(:comment)
+    create(:comment, user_id: @user.id)
+    create(:comment, user_id: @user.id)
+    create(:comment, user_id: @user.id)
 
     get :index
     assert_response :success
@@ -16,7 +16,7 @@ class Api::V1::CommentsControllerTest < ActionController::TestCase
   end
 
   test "should create comment" do
-    comment_attr = attributes_for(:comment)
+    comment_attr = attributes_for(:comment, user_id: @user.id)
     assert_difference('Comment.count') do
       post :create, comment: comment_attr
     end
@@ -30,29 +30,18 @@ class Api::V1::CommentsControllerTest < ActionController::TestCase
   end
 
   test "should destroy comment" do
-    comment = create(:comment)
-
+    comment = create(:comment, user_id: @user.id)
     assert_difference('Comment.count', -1) do
       delete :destroy, id: comment.id
     end
     assert_response(200)
   end
 
-  test "should validate commenter" do
-    comment_attr = attributes_for(:comment, commenter: 'sho')
-    post :create, comment: comment_attr
-    assert_response(400)
-    comment = JSON.parse(response.body)
-    
-    assert_equal "is too short (minimum is 5 characters)", comment["commenter"][0]
-    assert_not comment["id"]
-  end
-
   test "should fetch comment" do
-    comment = create(:comment)
+    comment = create(:comment, user_id: @user.id)
     get :show, id: comment.id 
     assert_response(200)
     comment2 = JSON.parse(response.body)
-    assert_equal comment.commenter, comment2["commenter"]
+    assert_equal comment.user_id, comment2["user_id"]
   end
 end

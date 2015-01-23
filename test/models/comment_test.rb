@@ -3,7 +3,7 @@ require 'test_helper'
 class CommentTest < ActiveSupport::TestCase
 
   test "should not save comment without author" do
-    comment = build(:comment, commenter: nil)
+    comment = build(:comment, user_id: nil)
     assert_not comment.save, "Saved the comment with no author"
   end
 
