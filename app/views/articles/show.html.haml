@@ -13,6 +13,6 @@
   -if can? :create, Comment
     %h2 Add a comment:
     = render 'comments/form'
-  -if can? :update, article
+  -if can? :update, @article
     = link_to 'Edit Article', edit_article_path(@article)
   = link_to 'Back to Articles', articles_path

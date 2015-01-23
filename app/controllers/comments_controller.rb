@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   load_and_authorize_resource
 
   def create
+    @comment.article_id = params[:article_id]
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to article_path(@article)

@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to    :user, 
                 inverse_of: :comment
 
-  validates     [:user_id, :article], 
+  validates     :user_id, :article, 
                 presence: true
 
   validates     :body, 

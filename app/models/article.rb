@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
   belongs_to  :user, 
               inverse_of: :articles
 
-  validates   [:user_id, :text], 
+  validates   :user_id, :text, 
               presence: true
 
   validates   :title, 
