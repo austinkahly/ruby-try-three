@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
-  has_many :articles, dependent: :destroy, inverse_of: :user
-  has_many :comment, inverse_of: :user
-  belongs_to :role, inverse_of: :users
+  has_many      :articles, 
+                dependent: :destroy, 
+                inverse_of: :user
 
-  ##### ALL VALIDATION
-    ##### Unique email and populated.
+  has_many      :comment, 
+                inverse_of: :user
+
+  belongs_to    :role, 
+                inverse_of: :users
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -19,10 +22,6 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where('(provider = ? and uid = ?) or lower(email) = ?' , auth.provider, auth.uid, auth.info.email.downcase).last || new
-    #where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    #  user.email ||= auth.info.email
-    #  user.password ||= Devise.friendly_token[0,20]
-    #end
   end
 
   def self.new_with_session(params, session)
