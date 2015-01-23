@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
+
   def index
     @articles = Article.all
   end
 
-  def new
-    @article = Article.new
+  def new  
+    @article = Article.new 
   end 
 
   def create
@@ -29,6 +30,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = @article.comments.build
   end
 
   def edit

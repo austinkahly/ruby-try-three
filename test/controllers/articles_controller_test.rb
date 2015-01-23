@@ -2,9 +2,12 @@ require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
   test "should get index"  do
+    create(:article)
+    create(:article)
+    create(:article)
+
     get :index
     assert_response :success
-    assert_not_nil assigns(:articles)
   end
 
   test "should create article" do
@@ -20,11 +23,31 @@ class ArticlesControllerTest < ActionController::TestCase
     assert_template layout: "layouts/application", partial: "_form"
   end
 
-  test "should create article 2" do
-    article_attr = attributes_for(:article)
-    assert_difference('Article.count') do
-      post :create, article: article_attr
+  test "should destroy article" do
+    article = create(:article)
+
+    assert_difference('Article.count', -1) do
+      delete :destroy, id: article.id
     end
-    assert_redirected_to article_path(assigns(:article))
   end
+
+  test "should validate title" do
+    article_attr = attributes_for(:article, title: 'um')
+    article = post :create, article: article_attr
+    assert_not article["id"]
+  end
+
+  test "should update article" do
+    article = create(:article)
+    article.title = "This is a new article"
+    # post :update, article: article
+    # Why doesn't this post command work?
+  end
+
+  test "should fetch article" do
+    article = create(:article)
+    get :show, id: article.id
+    assert_response(200)
+  end
+
 end

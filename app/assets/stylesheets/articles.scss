@@ -4,17 +4,15 @@
 
 
 $font-stack:    Helvetica, sans-serif;
-$primary-color: #7d72b7;
+$primary-color: #111A92;
 
 body {
-  color: #000000 !important;
+  font-color: #ffffff !important;
+  background: url(http://vintageprintable.com/wp-content/uploads/2010/07/Seasonal-Christmas-Iceskating-Photo1.jpg) center fixed;
 }
 
 .index {
-  font-family: "Whitney SSm A", "Whitney SSm B";
-  color: #000000;
-  font-style: italic;
-  background-color: $primary-color;
+  font-color: #ffffff;
   padding: 10px;
 
   .title {
