@@ -9,13 +9,14 @@ FactoryGirl.define do
       "person#{n}@example.com"
     end
     password "12345678"
-    role {Role.find_by_name("registered")}
+    role {Role.find_by_name(Role::REGISTERED)}
+
 
     factory :admin do
       sequence :email do |n| 
         "admin#{n}@example.com"
       end
-      role {Role.find_by_name("admin")}
+      role {Role.find_by_name(Role::ADMIN)}
     end
   end
   

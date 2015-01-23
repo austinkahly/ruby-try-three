@@ -15,8 +15,9 @@ class ActionController::TestCase
  include Devise::TestHelpers
 
   def setup
-    #@request.env["devise.mapping"] = Devise.mappings[:user]
-    sign_in create(:user)
+    load "#{Rails.root}/db/seeds.rb"
+    @user = create(:admin)
+    sign_in @user
   end
 
   def teardown

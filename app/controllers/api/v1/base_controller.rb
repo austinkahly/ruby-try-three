@@ -1,5 +1,7 @@
 class Api::V1::BaseController < ApplicationController
 
+  load_and_authorize_resource
+
   def index
     models = resource_klass.all
 
@@ -38,20 +40,6 @@ class Api::V1::BaseController < ApplicationController
     else
       render json: model.errors, status: 400
     end
-  end
-
-
-  private
-  def resource_klass
-    resource_name.classify.constantize
-  end
-
-  def resource_name
-    controller_name.underscore.split('/').last.singularize
-  end
-
-  def model_params
-    send("#{resource_name}_params")
   end
 
 end
