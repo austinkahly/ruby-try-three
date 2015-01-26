@@ -7,11 +7,6 @@ class CommentsController < ApplicationController
     @comment.article_id = params[:article_id]
     @comment.user_id = current_user.id
     if @comment.save
-
-      article = Article.find(@article)
-      user = User.find(article.user_id)
-      UserMailer.comment_create(user).deliver
-
       redirect_to article_path(@article)
     else 
       render "articles/show"
@@ -36,5 +31,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:user_id, :body, :article_id)
   end
-
 end
