@@ -14,10 +14,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @notification = Notification.where(:comment_id == @comment.id)
-    if @notification.nil?
-      @notification.destroy
-    end
     @comment.destroy
     redirect_to article_path(@article)
   end
