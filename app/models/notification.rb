@@ -3,9 +3,11 @@ class Notification < ActiveRecord::Base
                 inverse_of: :notification
 
   belongs_to    :comment,
+                dependent: :destroy,
                 inverse_of: :notifications
   
   belongs_to    :user,
+                dependent: :destroy,
                 inverse_of: :notifications
 
   validates     :user, :comment,
