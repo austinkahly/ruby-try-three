@@ -3,6 +3,9 @@ class Article < ActiveRecord::Base
               dependent: :destroy, 
               inverse_of: :article
   
+  has_many    :notifications,
+              inverse_of: :article
+
   belongs_to  :user, 
               inverse_of: :articles
 
