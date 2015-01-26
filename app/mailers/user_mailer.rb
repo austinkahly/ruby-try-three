@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
   def comment_create(user)
     @user = user
     @url = 'http://example.com/login'
-    mail(to: 'casey@wantable.com') do |format|
+    mail(to: @user.email) do |format|
       format.html {render layout: 'comment_create'}
     end
   end
