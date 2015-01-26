@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
-  has_many      :notifications
+  has_many      :notifications,
+                inverse_of: :comment
 
   belongs_to    :article, 
                 inverse_of: :comments
@@ -20,14 +21,15 @@ class Comment < ActiveRecord::Base
 
   def create_notification
     article = Article.find_by(self.article_id)
-    user = User.find_by(@article.user_id).id
-      Notification.create(
-        article_id: self.article_id,
-        user_id: @user,
-        comment_id: self.id,
-        read: false
-        )
-    user = User.find(@article.user_id)
+    user = User.find_by(article.user_id)
+    notification = Notification.create!(
+      article_id: self.article_id,
+      user_id: user.id,
+      comment_id: self.id,
+      read: false
+    )
+    puts "look at me "
+    puts notification.inspect
     UserMailer.comment_create(user).deliver
-    end
+  end
 end

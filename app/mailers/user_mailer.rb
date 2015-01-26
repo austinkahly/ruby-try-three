@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-  default from: 'austin@wantable.com'
 
   def welcome_user(user)
     @user = user
