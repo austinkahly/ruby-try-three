@@ -11707,3 +11707,304 @@ Started GET "/assets/bootstrap-sprockets-b4bc28516a4674c29125b9de32ccd9d3.js?bod
 
 
 Started GET "/assets/application-25d8695f70eb2c3003e68d1d8e6b1d35.js?body=1" for ::1 at 2015-01-26 13:35:58 -0600
+
+
+Started GET "/notifications/" for ::1 at 2015-01-26 14:03:26 -0600
+Processing by NotificationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRole Load (0.2ms)[0m  SELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mNotification Load (0.2ms)[0m  [1mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered notifications/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 200ms (Views: 162.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application-4eb55ccdcff87304e90fd6c941cbbc24.css?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/articles-069ddfa3263f33edf6b91a6b14eeb4ce.css?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/alert-12c1121c517b3085934c9173c0e083ed.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/affix-a9b852fe44dc5982a51ffb66baa3ab2e.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/collapse-20bda228e0a68013abcfe4ce3a88ac87.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/button-422bd197e0b53d2f7477cb521776aadb.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-85b34e99a6b5bb1a35c8751aed3e09d7.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/carousel-1aca75d21b33f868f2d7b289fb1ad98d.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/tab-bb31fbcdd9289a81d659f197fca0efd0.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/transition-20c428b2eccf2dcfaf8de396b7ad7b26.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/modal-19058d2f94ebcfb1a44bbfb8a52b8661.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-fca31083878040fe5fa93a655aed11ba.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-fe9092020b9bc68210dc1de9c589d39c.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap/popover-7285d8d5ce28a05ba8b9fce5fcd87f74.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-b4bc28516a4674c29125b9de32ccd9d3.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/assets/application-25d8695f70eb2c3003e68d1d8e6b1d35.js?body=1" for ::1 at 2015-01-26 14:03:27 -0600
+
+
+Started GET "/articles" for ::1 at 2015-01-26 14:03:28 -0600
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mArticle Load (0.4ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 151ms (Views: 141.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/articles/5" for ::1 at 2015-01-26 14:03:33 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 5]]
+  Rendered comments/_form.html.haml (2.4ms)
+  Rendered articles/show.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 153ms (Views: 135.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/articles/5/comments" for ::1 at 2015-01-26 14:03:35 -0600
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e9u7bK4nDlJoIZk+SpUUSGx3CWhLQMIOTdeSVaDKLOP47YJR2cYb1tlQBfpGvhupvuW9Ewwti9F5YZIG+PxH+Q==", "comment"=>{"body"=>"jhgfd"}, "commit"=>"Submit", "article_id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("body", "article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", "jhgfd"], ["article_id", 5], ["user_id", 1], ["created_at", "2015-01-26 20:03:35.898800"], ["updated_at", "2015-01-26 20:03:35.898800"]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE (5) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE (1) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1  [["id", 63]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "notifications" ("user_id", "comment_id", "read", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["comment_id", 63], ["read", "f"], ["created_at", "2015-01-26 20:03:35.920768"], ["updated_at", "2015-01-26 20:03:35.920768"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 51ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/articles/5" for ::1 at 2015-01-26 14:03:35 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.haml (3.5ms)
+  Rendered comments/_form.html.haml (1.4ms)
+  Rendered articles/show.html.haml within layouts/application (13.5ms)
+Completed 200 OK in 162ms (Views: 150.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/articles-069ddfa3263f33edf6b91a6b14eeb4ce.css?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/application-4eb55ccdcff87304e90fd6c941cbbc24.css?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/alert-12c1121c517b3085934c9173c0e083ed.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/affix-a9b852fe44dc5982a51ffb66baa3ab2e.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/button-422bd197e0b53d2f7477cb521776aadb.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/carousel-1aca75d21b33f868f2d7b289fb1ad98d.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/collapse-20bda228e0a68013abcfe4ce3a88ac87.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/tab-bb31fbcdd9289a81d659f197fca0efd0.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-85b34e99a6b5bb1a35c8751aed3e09d7.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/transition-20c428b2eccf2dcfaf8de396b7ad7b26.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-fca31083878040fe5fa93a655aed11ba.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/modal-19058d2f94ebcfb1a44bbfb8a52b8661.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-fe9092020b9bc68210dc1de9c589d39c.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap/popover-7285d8d5ce28a05ba8b9fce5fcd87f74.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-b4bc28516a4674c29125b9de32ccd9d3.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started GET "/assets/application-25d8695f70eb2c3003e68d1d8e6b1d35.js?body=1" for ::1 at 2015-01-26 14:03:36 -0600
+
+
+Started POST "/articles/5/comments" for ::1 at 2015-01-26 14:04:10 -0600
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UbPgKGnEb4wMn7U6a3125js3Iuf8RJP5wvgD/YMpWa/ShdkVHiV6CL3uKf5nVnkH6aWWnLsp2ib2TgOu2x8ytQ==", "comment"=>{"body"=>"asdfasdf"}, "commit"=>"Submit", "article_id"=>"5"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRole Load (0.3ms)[0m  SELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("body", "article_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "asdfasdf"], ["article_id", 5], ["user_id", 1], ["created_at", "2015-01-26 20:04:10.830470"], ["updated_at", "2015-01-26 20:04:10.830470"]]
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE (5) LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE (1) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 64]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "notifications" ("user_id", "comment_id", "read", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["user_id", 1], ["comment_id", 64], ["read", "f"], ["created_at", "2015-01-26 20:04:10.845410"], ["updated_at", "2015-01-26 20:04:10.845410"]]
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create_notification at /Users/austin/GitHub/ruby-try-three/app/models/comment.rb:30)
+  Rendered user_mailer/comment_create.haml within layouts/comment_create (2.8ms)
+
+UserMailer#comment_create: processed outbound mail in 198.9ms
+
+Sent mail to batman9847@comcast.net (778.4ms)
+Date: Mon, 26 Jan 2015 14:04:11 -0600
+From: austin@wantable.com
+To: batman9847@comcast.net
+Message-ID: <54c69dbb11cf1_105243fe8614ed3a4509dc@austins-mba.mail>
+Subject: Comment create
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+  </head>
+  <body>
+    <h1>
+      Hey, batman9847@comcast.net!
+    </h1>
+    <p>
+      Someone seems to have commented on your article! Come check it out.
+      <br>
+    </p>
+  </body>
+</html>
+
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 302 Found in 1077ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/articles/5" for ::1 at 2015-01-26 14:04:11 -0600
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRole Load (0.1ms)[0m  SELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.haml (3.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.haml (1.0ms)
+  Rendered comments/_form.html.haml (1.3ms)
+  Rendered articles/show.html.haml within layouts/application (16.1ms)
+Completed 200 OK in 135ms (Views: 125.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/articles-069ddfa3263f33edf6b91a6b14eeb4ce.css?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/application-4eb55ccdcff87304e90fd6c941cbbc24.css?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/alert-12c1121c517b3085934c9173c0e083ed.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/button-422bd197e0b53d2f7477cb521776aadb.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/carousel-1aca75d21b33f868f2d7b289fb1ad98d.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/affix-a9b852fe44dc5982a51ffb66baa3ab2e.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/collapse-20bda228e0a68013abcfe4ce3a88ac87.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-85b34e99a6b5bb1a35c8751aed3e09d7.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/tab-bb31fbcdd9289a81d659f197fca0efd0.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/transition-20c428b2eccf2dcfaf8de396b7ad7b26.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-fca31083878040fe5fa93a655aed11ba.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-fe9092020b9bc68210dc1de9c589d39c.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/popover-7285d8d5ce28a05ba8b9fce5fcd87f74.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap/modal-19058d2f94ebcfb1a44bbfb8a52b8661.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-b4bc28516a4674c29125b9de32ccd9d3.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600
+
+
+Started GET "/assets/application-25d8695f70eb2c3003e68d1d8e6b1d35.js?body=1" for ::1 at 2015-01-26 14:04:12 -0600

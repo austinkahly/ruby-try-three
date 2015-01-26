@@ -27,6 +27,6 @@ class Comment < ActiveRecord::Base
       comment_id: self.id,
       read: false
     )
-    #UserMailer.comment_create(user).deliver
+    UserMailer.comment_create(user).deliver
   end
 end
