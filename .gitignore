@@ -4,3 +4,5 @@ log/*
 start.sh
 
 tmp/pids/server.pid
+
+*.log

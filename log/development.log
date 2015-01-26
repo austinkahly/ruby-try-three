@@ -9385,3 +9385,69 @@ Processing by ArticlesController#index as HTML
   [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
   Rendered articles/index.html.haml within layouts/application (11.1ms)
 Completed 200 OK in 152ms (Views: 145.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles" for ::1 at 2015-01-26 13:23:13 -0600
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.haml within layouts/application (6.3ms)
+Completed 200 OK in 132ms (Views: 125.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/articles-069ddfa3263f33edf6b91a6b14eeb4ce.css?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/turbolinks-924184401b7d116eadaaefc96895fa84.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/jquery_ujs-0b8f09cf5aec4ba1be1abd9f915c77e2.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/affix-a9b852fe44dc5982a51ffb66baa3ab2e.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/application-4eb55ccdcff87304e90fd6c941cbbc24.css?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/jquery-eb3e278249152b5b5d5170b73d9dbf52.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/alert-12c1121c517b3085934c9173c0e083ed.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/carousel-1aca75d21b33f868f2d7b289fb1ad98d.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/button-422bd197e0b53d2f7477cb521776aadb.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/collapse-20bda228e0a68013abcfe4ce3a88ac87.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/dropdown-85b34e99a6b5bb1a35c8751aed3e09d7.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/tab-bb31fbcdd9289a81d659f197fca0efd0.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/transition-20c428b2eccf2dcfaf8de396b7ad7b26.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/scrollspy-fca31083878040fe5fa93a655aed11ba.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/popover-7285d8d5ce28a05ba8b9fce5fcd87f74.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/tooltip-fe9092020b9bc68210dc1de9c589d39c.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap/modal-19058d2f94ebcfb1a44bbfb8a52b8661.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/bootstrap-sprockets-b4bc28516a4674c29125b9de32ccd9d3.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
+
+
+Started GET "/assets/application-25d8695f70eb2c3003e68d1d8e6b1d35.js?body=1" for ::1 at 2015-01-26 13:23:13 -0600
