@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many      :comment, 
                 inverse_of: :user
 
+  has_many      :notifications,
+                inverse_of: :user
+
   belongs_to    :role, 
                 inverse_of: :users
 

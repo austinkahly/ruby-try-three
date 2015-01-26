@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  has_many      :notifications
+
   belongs_to    :article, 
                 inverse_of: :comments
 
@@ -11,4 +13,19 @@ class Comment < ActiveRecord::Base
   validates     :body, 
                 presence: true, 
                 length: { minimum: 4}
+
+  after_create :create_notification
+
+  private
+
+  def create_notification
+    @article = Article.find_by(self.article_id)
+    @user = User.find_by(@article.user_id).id
+      Notification.create(
+        article_id: self.article_id,
+        user_id: @user,
+        comment_id: self,
+        read: false
+        )
+    end
 end

@@ -22,6 +22,7 @@ gem 'factory_girl_rails', '~> 4.0'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'cancan'
+gem 'angularjs-rails', '~> 1.2.22'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

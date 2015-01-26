@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   root to: 'welcome#index'
   get 'welcome/index'
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+
+  resources :notifications
 
   namespace :api do 
     namespace :v1 do 

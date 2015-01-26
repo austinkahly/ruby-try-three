@@ -1,0 +1,7 @@
+%h1 Notifications
+- if !@notifications.blank?
+  = render partial: "notifications/notification", collection: @notifications
+- else
+  %p No notifications!
+
+= link_to 'Back to Articles', articles_path

@@ -1,4 +1,10 @@
-FactoryGirl.define do  
+FactoryGirl.define do  factory :notification do
+    article nil
+comment nil
+user nil
+read false
+  end
+  
 
   factory :role do
     name "MyString"
