@@ -23,13 +23,10 @@ class Comment < ActiveRecord::Base
     article = Article.find_by(self.article_id)
     user = User.find_by(article.user_id)
     notification = Notification.create!(
-      article_id: self.article_id,
       user_id: user.id,
       comment_id: self.id,
       read: false
     )
-    puts "look at me "
-    puts notification.inspect
-    UserMailer.comment_create(user).deliver
+    #UserMailer.comment_create(user).deliver
   end
 end

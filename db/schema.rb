@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20150126160624) do
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "article_id"
     t.integer  "comment_id"
     t.integer  "user_id"
     t.boolean  "read"
@@ -40,7 +39,6 @@ ActiveRecord::Schema.define(version: 20150126160624) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "notifications", ["article_id"], name: "index_notifications_on_article_id"
   add_index "notifications", ["comment_id"], name: "index_notifications_on_comment_id"
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
 

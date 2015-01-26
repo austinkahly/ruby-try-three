@@ -1,11 +1,5 @@
-FactoryGirl.define do  factory :notification do
-    article nil
-comment nil
-user nil
-read false
-  end
+FactoryGirl.define do 
   
-
   factory :role do
     name "MyString"
   end
@@ -36,5 +30,10 @@ read false
     body "Their comment"
     article_id { create(:article).id }
     user_id { create(:admin).id}
+  end
+
+  factory :notification do
+    user create(:admin)
+    comment create(:comment)
   end
 end
