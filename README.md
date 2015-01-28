@@ -8,11 +8,11 @@ https://obscure-chamber-1903.herokuapp.com/
 Run:
 
 ``` 
-  $rake db:migrate 
+  $ rake db:migrate 
 ```
 
 Execute:
 
 ```
-  $rails s
+  $ ../start-blog.sh 
 ```

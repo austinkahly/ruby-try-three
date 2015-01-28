@@ -1,0 +1,8 @@
+Blog = angular.module("Blog")
+
+Blog.factory('Notification', ($resource) -> 
+  $resource('<%= Rails.application.routes.url_helpers.api_v1_notifications_path %>', {}, {
+    markAllRead: {method:'POST', isArray: true, url: '<%= Rails.application.routes.url_helpers.mark_all_read_api_v1_notifications_path %>'}
+  })
+
+)

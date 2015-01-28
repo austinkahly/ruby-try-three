@@ -1,11 +1,14 @@
 class Api::V1::BaseController < ApplicationController
-
   load_and_authorize_resource
 
-  def index
-    models = resource_klass.all
+  after_filter :set_csrf_cookie_for_ng
 
-    render json: models
+  def set_csrf_cookie_for_ng
+    cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+  end
+
+  def index
+    render json: resource_klass.where(actual_query)
   end
 
   def create
@@ -42,4 +45,16 @@ class Api::V1::BaseController < ApplicationController
     end
   end
 
+  private 
+
+  def actual_query 
+    params[:query] ? JSON.parse(params[:query]) : {}
+  end
+
+  protected
+
+  # In Rails 4.2 and above
+  def verified_request?
+    super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
+  end
 end

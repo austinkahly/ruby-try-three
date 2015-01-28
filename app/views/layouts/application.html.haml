@@ -4,7 +4,26 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  %body{'ng-app' => "Blog"}
+    %nav.navbar.navbar-inverse{'ng-controller' => 'HeaderController'}
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed
+          %a.navbar-brand{href: root_path} Austin's Blog!
+        #navbar.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{href: root_path} Home
+            %li
+              %a{href: articles_path} Articles
+            %li
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button", 'ng-click' => 'markNotificationsAsRead()'} 
+                Notifications 
+                %span.badge {{ notifications.length }}
+                %span.caret{'ng-if' => 'notifications.length > 0'}
+              %ul.dropdown-menu{role: "menu", 'ng-if' => 'notifications.length > 0'}
+                %li{role: "presentation", 'ng-repeat' => 'notification in notifications'}
+                  %a{'ng-href' => "#{articles_path}/{{ notification.article_id }}"} {{ notification.display_text }}
     .container
       = yield
 

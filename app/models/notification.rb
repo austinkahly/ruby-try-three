@@ -1,6 +1,6 @@
 class Notification < ActiveRecord::Base
   has_one       :article,
-                inverse_of: :notification,
+                inverse_of: :notifications,
                 through: :comment
 
   belongs_to    :comment,
