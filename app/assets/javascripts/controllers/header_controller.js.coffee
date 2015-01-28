@@ -5,7 +5,7 @@ Blog.controller('HeaderController', ($scope, Notification) ->
 
   $scope.notifications = Notification.query(query: {read: false})
 
-  $scope.toggleNotifications = () ->
+  $scope.markNotificationsAsRead = () ->
     if !$scope.markedAsRead
       $scope.markedAsRead = true
       Notification.markAllRead()

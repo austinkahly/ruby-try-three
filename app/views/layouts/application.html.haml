@@ -17,7 +17,7 @@
             %li
               %a{href: articles_path} Articles
             %li
-              %a#drop1.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button", 'ng-click' => 'toggleNotifications()'} 
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button", 'ng-click' => 'markNotificationsAsRead()'} 
                 Notifications 
                 %span.badge {{ notifications.length }}
                 %span.caret{'ng-if' => 'notifications.length > 0'}
