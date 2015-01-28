@@ -22,7 +22,7 @@ gem 'autoprefixer-rails'
 gem 'factory_girl_rails', '~> 4.0'
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'cancan'
+gem 'cancancan', '~> 1.10'
 gem 'angularjs-rails', '~> 1.2.22'
 
 # Use jquery as the JavaScript library
