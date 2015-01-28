@@ -1,7 +1,6 @@
 class Api::V1::ArticlesController < Api::V1::BaseController
 
   before_filter :set_user_id, only: :create
-  load_and_authorize_resource
   
   private
   def set_user_id

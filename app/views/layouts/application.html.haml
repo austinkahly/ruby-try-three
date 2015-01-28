@@ -15,7 +15,7 @@
             %li.active
               %a{href: root_path} Home
             %li
-              %a{href: articles_path} Articles
+              %a{href: root_path + '#/articles'} Articles
             %li
               %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button", 'ng-click' => 'markNotificationsAsRead()'} 
                 Notifications 
@@ -23,7 +23,8 @@
                 %span.caret{'ng-if' => 'notifications.length > 0'}
               %ul.dropdown-menu{role: "menu", 'ng-if' => 'notifications.length > 0'}
                 %li{role: "presentation", 'ng-repeat' => 'notification in notifications'}
-                  %a{'ng-href' => "#{articles_path}/{{ notification.article_id }}"} {{ notification.display_text }}
+                  %a{'ng-href' => "#{root_path}#/articles/{{ notification.article_id }}"} {{ notification.display_text }}
     .container
+      .div{'ng-view' => ''}
       = yield
 

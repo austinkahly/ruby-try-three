@@ -15,10 +15,11 @@
 #= require bootstrap-sprockets
 #= require angular
 #= require angular-resource
+#= require angular-route
 #= require_self
 
 #= require_directory ./controllers
 #= require_directory ./resources
 #= require_tree .
 
-Blog = angular.module("Blog", ['ngResource'])
+Blog = angular.module("Blog", ['ngResource', 'ngRoute'])
