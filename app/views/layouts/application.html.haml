@@ -9,20 +9,20 @@
       .container
         .navbar-header
           %button.navbar-toggle.collapsed
-          %a.navbar-brand{:href => root_path} Austin's Blog!
+          %a.navbar-brand{href: root_path} Austin's Blog!
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => root_path} Home
+              %a{href: root_path} Home
             %li
-              %a{:href => articles_path} Articles
+              %a{href: articles_path} Articles
             %li
-              %a#drop1.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", role: "button", 'ng-click' => 'toggleNotifications()'} 
+              %a#drop1.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button", 'ng-click' => 'toggleNotifications()'} 
                 Notifications 
                 %span.badge {{ notifications.length }}
                 %span.caret{'ng-if' => 'notifications.length > 0'}
               %ul.dropdown-menu{role: "menu", 'ng-if' => 'notifications.length > 0'}
-                %li{:role => "presentation", 'ng-repeat' => 'notification in notifications'}
+                %li{role: "presentation", 'ng-repeat' => 'notification in notifications'}
                   %a{'ng-href' => "#{articles_path}/{{ notification.article_id }}"} {{ notification.display_text }}
     .container
       = yield
