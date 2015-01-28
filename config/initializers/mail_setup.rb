@@ -6,4 +6,4 @@ ActionMailer::Base.smtp_settings = {
    password:        ENV['SENDGRID_PASSWORD'],
    domain:          'heroku.com',
    enable_starttls_auto:  true
-}
+} if !Rails.env.test?

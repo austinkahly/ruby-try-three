@@ -19,7 +19,6 @@
           %td= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
   - if user_signed_in?
     %td= link_to 'Sign Out', destroy_user_session_path, method: :delete
-    %td=link_to 'Notifications', notifications_path
   - else
     %td= link_to 'Sign In With Facebook', user_omniauth_authorize_path(:facebook)
     %td= link_to 'Sign In', new_user_session_path
