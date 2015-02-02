@@ -1,4 +1,11 @@
 .index
   .title
     %h1 Listing Articles 
-      
+  %button{"ng-click" => '', class: 'btn btn-success'} New Article
+  %table
+    %tr
+      %th Title
+      %th Text
+      %th{colspan: "3"}
+    - @articles.each do |article|
+      %td= article.title

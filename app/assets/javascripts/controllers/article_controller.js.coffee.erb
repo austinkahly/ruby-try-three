@@ -1,13 +1,13 @@
 Blog = angular.module("Blog")
 
+
 Blog.config ($routeProvider) ->
   $routeProvider.when('/articles/:id', 
     templateUrl: '<%= asset_path('assets/articles/show.html') %>', 
     controller: 'ArticleController'
-  )
+)
 
 Blog.controller('ArticleController', ($scope, Article) ->
   $scope.articles = Article.query()
-
 
 )

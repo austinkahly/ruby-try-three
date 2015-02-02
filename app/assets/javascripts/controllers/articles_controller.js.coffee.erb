@@ -4,7 +4,7 @@ Blog.config ($routeProvider) ->
   $routeProvider.when('/articles/',
     templateUrl: '<%= asset_path('assets/articles/index.html') %>',
     controller: 'ArticlesController'
-  )
+)
 
 Blog.controller('ArticlesController', ($scope, Article) ->
   $scope.articles = Article.query()
