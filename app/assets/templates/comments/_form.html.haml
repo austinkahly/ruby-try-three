@@ -3,4 +3,4 @@
     %div.form-group
       %label Comment
       %textarea.form-control{placeholder: 'Comment', 'ng-model' => 'comment.body', rows: 4}
-      %a{class: 'btn btn-success', type: 'button', 'ng-click' => 'createComment()', 'ng-href' => root_path + '#/articles/{{article.id}}'} Submit
+      %a{class: 'btn btn-success', type: 'button', 'ng-click' => 'createComment()', 'ng-href' => root_path + '#/articles/{{article.id}}'} Post Comment

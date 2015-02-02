@@ -1,8 +1,9 @@
 Blog = angular.module("Blog")
 
-Blog.controller('CommentsController', ($scope, $routeParams, Comment) ->
+Blog.controller('CommentsController', ($scope, $routeParams, $resource, Comment) ->
   if $routeParams.id
-    $scope.comments = Comment.query()
+    Article = $resource('/articles/:articleId', articleId: '@id')
+    $scope.comments = Article.query()
 
   $scope.createComment = () ->
     $scope.comments.$save()
