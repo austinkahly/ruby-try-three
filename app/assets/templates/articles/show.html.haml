@@ -1,18 +1,10 @@
-.index
-  %p
-    %strong Title:
-    = @article.title
-  %p
-    %strong Text:
-    = @article.text
+.index{'ng-controller' => 'ArticleController'}
+  %h1 {{article.title}}
+  {{article.text}}
+
   %h2 Comments
-  -for comment in @article.comments
-    -if comment.persisted?
-      =render comment
-  
-  -if can? :create, Comment
-    %h2 Add a comment:
-    = render 'comments/form'
-  -if can? :update, @article
-    = link_to 'Edit Article', edit_article_path(@article)
-  = link_to 'Back to Articles', articles_path
+  %tr{role: "presentation", 'ng-repeat' => 'comment in comments'}
+    %td {{comment}}
+  %div{'ng-include' => "'#{asset_path('assets/comments/comment.html')}'"}
+  %a{class: 'btn btn-primary', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
+  %a{class: 'btn btn-danger', type: 'button', 'ng-href' => root_path + '#/articles/'} Back

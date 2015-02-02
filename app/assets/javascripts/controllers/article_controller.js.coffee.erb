@@ -2,12 +2,33 @@ Blog = angular.module("Blog")
 
 
 Blog.config ($routeProvider) ->
-  $routeProvider.when('/articles/:id', 
+  $routeProvider.when('/articles/new', 
+    templateUrl: '<%= asset_path('assets/articles/new.html') %>', 
+    controller: 'ArticleController'
+  )
+  .when('/articles/:id', 
     templateUrl: '<%= asset_path('assets/articles/show.html') %>', 
     controller: 'ArticleController'
-)
+  )
+  .when('/articles/:id/edit',
+    templateUrl: '<%= asset_path('assets/articles/edit.html') %>', 
+    controller: 'ArticleController'
+  )
 
-Blog.controller('ArticleController', ($scope, Article) ->
-  $scope.articles = Article.query()
 
+Blog.controller('ArticleController', ($scope, $routeParams, Article) ->
+  if $routeParams.id
+    $scope.article_id = $routeParams.id
+    $scope.article = Article.get(id: $routeParams.id)
+  else
+    $scope.article = new Article()
+
+  $scope.updateArticle = () ->
+    if ($scope.article.id?)
+      $scope.article.$update()
+    else
+      $scope.article.$save()  
+
+  $scope.deleteArticle = () ->
+    $scope.article.$delete() 
 )

@@ -1,15 +1,19 @@
-.index
+.index{'ng-controller' => 'ArticlesController'}
   .title
     %h1 Listing Articles 
-  %button{"ng-click" => '', class: 'btn btn-success'} New Article
+  %a{class: 'btn btn-primary', type: 'button', 'ng-href' => root_path + '#/articles/new'} New Article
   %table
     %tr
-      %th Title
-      %th Text
-      %th{colspan: "3"}
-    - @articles.each do |article|
-      %td= article.title
-
-      
-    =link_to "this works now", root_path
-
+      .div.row
+        .h3.col-md-2 Title
+        .h3.col-md-8 Text
+    .div.row{role: "presentation", 'ng-repeat' => 'article in articles'}
+      .div.col-md-2 {{article.title}}
+      .div.col-md-7 {{article.text}}
+      .div.col-md-3  
+        %a{class: 'btn btn-success', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}'} View Article
+        %a{class: 'btn btn-warning', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
+        %a.glyphicon.glyphicon-remove-sign{class: 'btn btn-danger', type: 'button', 'ng-click' => 'deleteArticle()', 'ng-href' => root_path + '#/articles' }
+        
+    .div.row
+      %a.col-md-2{class: 'btn btn-primary', type: 'button', 'ng-href' => user_omniauth_authorize_path(:facebook)} Sign in with Facebook

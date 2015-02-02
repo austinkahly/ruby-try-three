@@ -1,0 +1,6 @@
+Blog = angular.module("Blog")
+
+Blog.factory('Comment', ($resource) -> 
+  $resource('<%= Rails.application.routes.url_helpers.api_v1_article_path(":id") %>', { id: '@id'}, {})
+
+)

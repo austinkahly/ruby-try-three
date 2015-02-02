@@ -1,0 +1,10 @@
+%div{'ng-controller' => 'ArticleController'}
+  %form
+    %div.form-group
+      %label Title
+      %input.form-control{id: 'title', placeholder: 'Title', 'ng-model' => 'article.title'}
+      %label Body
+      %textarea.form-control{id: 'body', placeholder: 'Body', rows: 4}
+      %br
+      %a{class: 'btn btn-success', type: 'button', 'ng-click' => 'updateArticle()', 'ng-href' => root_path + '#/articles/{{article.id}}'} Submit
+      %a{class: 'btn btn-danger', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}'} Back

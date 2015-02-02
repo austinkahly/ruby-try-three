@@ -1,0 +1,6 @@
+.index
+  .title
+    %h1 New article
+  .notTitle
+    %div{'ng-include' => "'#{asset_path('assets/articles/_form.html')}'"}
+  = link_to 'Back', root_path
