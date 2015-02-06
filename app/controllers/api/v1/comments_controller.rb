@@ -5,7 +5,7 @@ class Api::V1::CommentsController < Api::V1::BaseController
   
   private
   def set_user_id
-    params[:user_id] = current_user.id
+    params[:comment][:user_id] = current_user.id
   end
 
   def comment_params

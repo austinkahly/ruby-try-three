@@ -16,10 +16,14 @@ Blog.config ($routeProvider) ->
   )
 
 
-Blog.controller('ArticleController', ($scope, $routeParams, Article) ->
+Blog.controller('ArticleController', ($scope, $routeParams, Article, Comment) ->
   if $routeParams.id
     $scope.article_id = $routeParams.id
-    $scope.article = Article.get(id: $routeParams.id)
+    Article.get(id: $routeParams.id).$promise.then (article) ->
+      $scope.article = article
+      $scope.article.comments = _.map($scope.article.comments, (comment) ->
+        new Comment(comment)
+      )
   else
     $scope.article = new Article()
 
@@ -31,4 +35,13 @@ Blog.controller('ArticleController', ($scope, $routeParams, Article) ->
 
   $scope.deleteArticle = () ->
     $scope.article.$delete() 
+
+  $scope.deleteComment = (comment) ->
+    comment.$delete().then (response) -> 
+      $scope.article.comments = _.reject($scope.article.comments, (comment2) -> 
+        comment.id is comment2.id
+      )
+    .catch (response) ->
+      alert("oh crap")
+
 )
