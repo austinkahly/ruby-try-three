@@ -10,11 +10,9 @@ Blog.controller('ArticlesController', ($scope, Article, Notification) ->
   $scope.articles = Article.query()
   $scope.getNotifications()
   
-  $scope.deleteArticle = (article) ->
-    article.$delete().then (response) ->
-      $scope.articles = _.reject($scope.articles, (article2) -> 
-        article.id is article2.id
-      )
+  $scope.deleteComment = (comment, index) ->
+    comment.$delete().then (response) -> 
+      $scope.article.comments.splice(index, 1)
     .catch (response) ->
       alert("oh crap")
 
