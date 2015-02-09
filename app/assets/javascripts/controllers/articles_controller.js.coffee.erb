@@ -6,10 +6,10 @@ Blog.config ($routeProvider) ->
     controller: 'ArticlesController'
 )
 
-Blog.controller('ArticlesController', ($scope, Article) ->
+Blog.controller('ArticlesController', ($scope, Article, Notification) ->
   $scope.articles = Article.query()
-
-
+  $scope.getNotifications()
+  
   $scope.deleteArticle = (article) ->
     article.$delete().then (response) ->
       $scope.articles = _.reject($scope.articles, (article2) -> 

@@ -6,12 +6,22 @@ Blog.config ($routeProvider) ->
     controller: 'BaseController'
 )
 
-Blog.controller('BaseController', ($scope, User) ->
+Blog.controller('BaseController', ($scope, User, Notification) ->
   User.current().$promise.then (user) ->
     $scope.currentUser = user
   .catch () ->
     delete $scope.currentUser
 
+  $scope.markedAsRead = false
+  $scope.markNotificationsAsRead = () ->
+    if !$scope.markedAsRead
+      $scope.markedAsRead = true
+      Notification.markAllRead()
+      $scope.notifications = [] 
+
+  $scope.getNotifications = () ->
+    $scope.notifications = Notification.query(query: {read: false})
+    $scope.markedAsRead = false
 
   $scope.handleValidationError = (response, $form, $scope) ->
       $scope.errors = []

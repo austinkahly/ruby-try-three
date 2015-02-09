@@ -20,13 +20,11 @@ class Comment < ActiveRecord::Base
   private
 
   def create_notification
-    article = Article.find_by(self.article_id)
-    user = User.find_by(article.user_id)
     notification = Notification.create!(
-      user_id: user.id,
+      user_id: article.user_id,
       comment_id: self.id,
       read: false
     )
-    UserMailer.comment_create(user).deliver
+    UserMailer.comment_create(article.user).deliver
   end
 end

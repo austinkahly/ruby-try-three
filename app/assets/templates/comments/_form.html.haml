@@ -1,5 +1,4 @@
-
-%form{'ng-submit' => 'createComment(form)', name: 'form'}
+%form{'ng-if' => 'currentUser.can_create_comment', 'ng-submit' => 'createComment(form)', name: 'form'}
   .alert.alert-danger{'ng-repeat' => 'error in errors'} {{error}} 
   .form-group{name: 'comment', 'ng-class' => '!form.body.$valid ? "has-error" : ""'} 
     %label Comment

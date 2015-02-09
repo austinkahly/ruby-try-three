@@ -1,6 +1,6 @@
 Blog = angular.module("Blog")
 
-Blog.controller('CommentController', ($scope, $routeParams, Article, Comment) ->
+Blog.controller('CommentController', ($scope, $routeParams, Article, Comment, Notification) ->
   if $routeParams.id
     $scope.comment = new Comment(article_id: $scope.article_id)
 

@@ -18,13 +18,13 @@
               %a{href: root_path + '#/articles'} Articles
           %ul.nav.navbar-nav.navbar-right{'ng-if' => 'currentUser'}
             %li
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "", role: "button", 'ng-click' => 'markNotificationsAsRead()'} 
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "", role: "button"} 
                 {{ currentUser.email }} 
                 %span.badge {{ notifications.length }}
                 %span.caret{'ng-if' => 'notifications.length > 0'}
               %ul.dropdown-menu{role: "menu", 'ng-if' => 'notifications.length > 0'}
                 %li{role: "presentation", 'ng-repeat' => 'notification in notifications'}
-                  %a{'ng-href' => "#{root_path}#/articles/{{ notification.article_id }}"} {{ notification.display_text }}
+                  %a{'ng-blur' => 'markNotificationsAsRead()', 'ng-href' => "#{root_path}#/articles/{{ notification.article_id }}"} {{ notification.display_text }}
     .container
       .div{'ng-view' => ''}
       = yield

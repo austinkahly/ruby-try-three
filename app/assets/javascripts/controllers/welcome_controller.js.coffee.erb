@@ -6,5 +6,6 @@ Blog.config ($routeProvider) ->
     controller: 'WelcomeController'
 )
 
-Blog.controller('WelcomeController', ($scope) ->
+Blog.controller('WelcomeController', ($scope, Notification) ->
+  $scope.getNotifications()
 )
