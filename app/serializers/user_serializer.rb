@@ -1,9 +1,5 @@
 class UserSerializer < BaseSerializer
-  attributes :id, :email, :abilities, :can_create_article, :can_create_comment
-
-  def abilities
-    # TODO SOMEHOW THIS SHOULD BE A THING
-  end
+  attributes :id, :email, :can_create_article, :can_create_comment
 
   def can_create_article
     can?(:create, Article)

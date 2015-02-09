@@ -7,10 +7,15 @@ Blog.config ($routeProvider) ->
 )
 
 Blog.controller('BaseController', ($scope, User, Notification) ->
+  # Used a promise to avoid race conditions and the catch
+  # to clear the current user if something went wrong while
+  # attempting to get that user.
   User.current().$promise.then (user) ->
     $scope.currentUser = user
   .catch () ->
     delete $scope.currentUser
+
+
 
   $scope.markedAsRead = false
   $scope.markNotificationsAsRead = () ->
