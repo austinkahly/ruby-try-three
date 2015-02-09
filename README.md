@@ -11,7 +11,19 @@ Run:
   $ rake db:migrate 
 ```
 
-Execute:
+Start Redis:
+
+```
+  $ redis-server /usr/local/etc/redis.conf
+```
+
+Start Sidekiq:
+
+```
+  $ bundle exec sidekiq
+```
+
+Launch application:
 
 ```
   $ ../start-blog.sh 
