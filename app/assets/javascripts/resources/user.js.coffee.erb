@@ -1,0 +1,7 @@
+Blog = angular.module("Blog")
+
+Blog.factory('User', ($resource) -> 
+  $resource('<%= Rails.application.routes.url_helpers.api_v1_users_path %>', { }, {
+    'current': { method:'GET', url: '<%= Rails.application.routes.url_helpers.current_api_v1_users_path %>'}
+  })
+)

@@ -8,7 +8,8 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def index
-    render json: resource_klass.where(actual_query)
+    query = resource_klass.accessible_by(current_ability)
+    render json: query.where(actual_query)
   end
 
   def create

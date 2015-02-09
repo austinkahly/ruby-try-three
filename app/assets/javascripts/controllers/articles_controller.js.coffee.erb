@@ -1,0 +1,21 @@
+Blog = angular.module("Blog")
+
+Blog.config ($routeProvider) ->
+  $routeProvider.when('/articles/',
+    templateUrl: '<%= asset_path('assets/articles/index.html') %>',
+    controller: 'ArticlesController'
+)
+
+Blog.controller('ArticlesController', ($scope, Article, Notification) ->
+  $scope.articles = Article.query()
+  $scope.getNotifications()
+  
+  $scope.deleteArticle = (article) ->
+    article.$delete().then (response) ->
+      $scope.articles = _.reject($scope.articles, (article2) -> 
+        article.id is article2.id
+      )
+    .catch (response) ->
+      alert("oh crap")
+
+)

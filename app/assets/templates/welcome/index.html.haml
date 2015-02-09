@@ -1,0 +1,8 @@
+%h1 Hello, Rails!
+.div.row
+  %a.col-md-2.btn.btn-success{type: 'button', 'ng-href' => root_path + '#/articles/'} View My Blog
+.div.row{'ng-if' => '!currentUser'}
+  %a.col-md-2.btn.btn-primary{type: 'button', 'ng-href' => user_omniauth_authorize_path(:facebook)} Sign in with Facebook
+  %a.col-md-2.btn.btn-primary{type: 'button', 'ng-href' => new_user_session_path()} Sign In
+.div.row{'ng-if' => 'currentUser'}
+  %a.col-md-2.btn.btn-primary{type: 'button', 'ng-href' => destroy_user_session_path()} Sign out

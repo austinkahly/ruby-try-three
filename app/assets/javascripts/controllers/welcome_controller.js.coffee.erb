@@ -1,0 +1,11 @@
+Blog = angular.module("Blog")
+
+Blog.config ($routeProvider) ->
+  $routeProvider.otherwise(
+    templateUrl: '<%= asset_path('assets/welcome/index.html') %>',
+    controller: 'WelcomeController'
+)
+
+Blog.controller('WelcomeController', ($scope, Notification) ->
+  $scope.getNotifications()
+)

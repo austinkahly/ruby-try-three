@@ -8,4 +8,14 @@
 [Role::REGISTERED, Role::ADMIN].each do |role|
   Role.find_or_create_by({name: role})
 
+User.create(email: 'admin@admin.com', password: 'password', role: Role.find_or_create_by({name: 'admin'}))
+
+Article.create!(title: "Article Title", text: "Article Text", user: User.first)
+Article.create!(title: "Article Title", text: "Article Text", user: User.first)
+Article.create!(title: "Article Title", text: "Article Text", user: User.first)
+Article.create!(title: "Article Title", text: "Article Text", user: User.first)
+Article.create!(title: "Article Title", text: "Article Text", user: User.first)
+
+Comment.create!(body: "I'm a comment!", user: User.first, article: Article.first)
+
 end

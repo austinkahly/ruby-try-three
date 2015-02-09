@@ -1,0 +1,39 @@
+Blog = angular.module("Blog")
+
+Blog.config ($routeProvider) ->
+  $routeProvider.otherwise(
+    templateUrl: '<%= asset_path('assets/welcome/index.html') %>',
+    controller: 'BaseController'
+)
+
+Blog.controller('BaseController', ($scope, User, Notification) ->
+  # Used a promise to avoid race conditions and the catch
+  # to clear the current user if something went wrong while
+  # attempting to get that user.
+  User.current().$promise.then (user) ->
+    $scope.currentUser = user
+  .catch () ->
+    delete $scope.currentUser
+
+
+
+  $scope.markedAsRead = false
+  $scope.markNotificationsAsRead = () ->
+    if !$scope.markedAsRead
+      $scope.markedAsRead = true
+      Notification.markAllRead()
+      $scope.notifications = [] 
+
+  $scope.getNotifications = () ->
+    $scope.notifications = Notification.query(query: {read: false})
+    $scope.markedAsRead = false
+
+  $scope.handleValidationError = (response, $form, $scope) ->
+      $scope.errors = []
+      angular.forEach response.data, (value, key) ->
+        errs = value.join(", ")
+        $scope.errors.push(key + ': ' + errs)
+        if $form[key]?
+          $form[key].$dirty = true
+          $form[key].$setValidity errs, false
+)

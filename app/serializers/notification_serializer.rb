@@ -1,4 +1,4 @@
-class NotificationSerializer < ActiveModel::Serializer
+class NotificationSerializer < BaseSerializer
   attributes :id, :display_text, :article_id
 
   def display_text

@@ -1,0 +1,20 @@
+.index{'ng-controller' => 'ArticlesController'}
+  .div
+    .h1 Listing Articles 
+    .div.pull-right{'ng-if' => 'currentUser.can_create_article'}
+      %a.btn.btn-primary{type: 'button', 'ng-href' => root_path + '#/articles/new'} New Article
+  %table
+    %tr
+      .div.row
+        .h3.col-md-2 Title
+        .h3.col-md-8 Text
+    .div.row{role: "presentation", 'ng-repeat' => 'article in articles'}
+      .div.panel.panel-default
+        .div.panel-body
+          .div.col-md-2 {{article.title}}
+          .div.col-md-7 {{article.text}}
+          .div.col-md-3  
+            %a.btn.btn-success{type: 'button', 'ng-href' => '#/articles/{{article.id}}'} View Article
+            %a.btn.btn-warning{'ng-if' => 'article.can_edit', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
+            %span.glyphicon.glyphicon-remove-sign.btn.btn-danger{'ng-if' => 'article.can_destroy', type: 'button', 'ng-click' => 'deleteArticle(article)'}
+        

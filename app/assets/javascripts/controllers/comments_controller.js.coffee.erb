@@ -1,0 +1,15 @@
+Blog = angular.module("Blog")
+
+Blog.controller('CommentController', ($scope, $routeParams, Article, Comment, Notification) ->
+  $scope.comment = new Comment(article_id: $scope.article_id)
+
+  $scope.createComment = ($form) ->
+    return unless $form.$valid
+    $scope.comment.$save().then (comment) ->
+      $scope.$parent.article.comments.push(comment)
+      $scope.comment = new Comment(article_id: $scope.article_id)
+      $scope.errors = []
+    .catch (response) ->
+      $scope.handleValidationError(response, $form, $scope)
+)
+

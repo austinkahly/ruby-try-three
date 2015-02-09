@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   get 'welcome/index'
 
-  resources :articles do
-    resources :comments
-  end
-
   resources :notifications
 
   namespace :api do 
@@ -16,6 +12,9 @@ Rails.application.routes.draw do
       resources :comments,      except: [:new, :edit]
       resources :notifications, only: :index do 
         post :mark_all_read,    on: :collection
+      end
+      resources :users, only: :index do 
+        get :current, on: :collection
       end
     end
   end

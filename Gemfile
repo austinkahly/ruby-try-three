@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'underscore-rails'
 gem 'active_model_serializers'
 
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -22,7 +22,7 @@ gem 'autoprefixer-rails'
 gem 'factory_girl_rails', '~> 4.0'
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'cancan'
+gem 'cancancan', '~> 1.10'
 gem 'angularjs-rails', '~> 1.2.22'
 
 # Use jquery as the JavaScript library

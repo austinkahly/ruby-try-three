@@ -1,0 +1,13 @@
+.index
+  %h1 {{article.title}}
+  {{article.text}}
+
+  %h2 Comments
+  .panel{role: "presentation", 'ng-repeat' => 'comment in article.comments'}
+    .panel-body
+      {{comment.body}}
+      %a.pull-right{'ng-if' => 'comment.can_destroy', 'ng-click' => 'deleteComment(comment)'}
+        %span.glyphicon.glyphicon-trash
+  %div{'ng-include' => "'#{asset_path('assets/comments/comment.html')}'"}
+  %a.btn.btn-primary{'ng-if' => 'article.can_edit', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
+  %a.btn.btn-danger{type: 'button', 'ng-href' => root_path + '#/articles/'} Back
