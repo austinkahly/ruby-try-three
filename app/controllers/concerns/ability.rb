@@ -11,7 +11,11 @@ class Ability
       can [:destroy, :create], Comment, user_id: user.id
     end
     can :read, [Article, Comment]
-    can :read, Notification, user_id: user.id
-    can :mark_all_read, Notification
+
+    if user.persisted?
+      can :read, Notification, user_id: user.id
+      can :mark_all_read, Notification
+      can :current, User
+    end
   end
 end

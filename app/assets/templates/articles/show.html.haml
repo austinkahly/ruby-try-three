@@ -9,5 +9,5 @@
       %a.pull-right{'ng-click' => 'deleteComment(comment)'}
         %span.glyphicon.glyphicon-trash
   %div{'ng-include' => "'#{asset_path('assets/comments/comment.html')}'"}
-  %a{class: 'btn btn-primary', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
-  %a{class: 'btn btn-danger', type: 'button', 'ng-href' => root_path + '#/articles/'} Back
+  %a.btn.btn-primary{'ng-if' => 'article.can_edit', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
+  %a.btn.btn-danger{type: 'button', 'ng-href' => root_path + '#/articles/'} Back

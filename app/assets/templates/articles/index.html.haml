@@ -1,7 +1,8 @@
 .index{'ng-controller' => 'ArticlesController'}
   .title
     %h1 Listing Articles 
-  %a{class: 'btn btn-primary', type: 'button', 'ng-href' => root_path + '#/articles/new'} New Article
+  .div{'ng-if' => 'currentUser.can_create_article'}
+    %a.btn.btn-primary{type: 'button', 'ng-href' => root_path + '#/articles/new'} New Article
   %table
     %tr
       .div.row
@@ -11,9 +12,7 @@
       .div.col-md-2 {{article.title}}
       .div.col-md-7 {{article.text}}
       .div.col-md-3  
-        %a{class: 'btn btn-success', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}'} View Article
-        %a{class: 'btn btn-warning', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
-        %a.glyphicon.glyphicon-remove-sign{class: 'btn btn-danger', type: 'button', 'ng-click' => 'deleteArticle()', 'ng-href' => root_path + '#/articles' }
+        %a.btn.btn-success{type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}'} View Article
+        %a.btn.btn-warning{'ng-if' => 'article.can_edit', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
+        %span.glyphicon.glyphicon-remove-sign.btn.btn-danger{'ng-if' => 'article.can_destroy', type: 'button', 'ng-click' => 'deleteArticle(article)'}
         
-    .div.row
-      %a.col-md-2{class: 'btn btn-primary', type: 'button', 'ng-href' => user_omniauth_authorize_path(:facebook)} Sign in with Facebook

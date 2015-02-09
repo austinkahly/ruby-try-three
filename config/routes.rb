@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       resources :notifications, only: :index do 
         post :mark_all_read,    on: :collection
       end
+      resources :users, only: :index do 
+        get :current, on: :collection
+      end
     end
   end
 end

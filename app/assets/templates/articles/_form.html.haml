@@ -1,10 +1,15 @@
-%div{'ng-controller' => 'ArticleController'}
-  %form
-    %div.form-group
-      %label Title
-      %input.form-control{id: 'title', placeholder: 'Title', 'ng-model' => 'article.title'}
-      %label Body
-      %textarea.form-control{id: 'body', placeholder: 'Body', rows: 4}
-      %br
-      %a{class: 'btn btn-success', type: 'button', 'ng-click' => 'updateArticle()', 'ng-href' => root_path + '#/articles/{{article.id}}'} Submit
-      %a{class: 'btn btn-danger', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}'} Back
+
+%form{'ng-submit' => 'save(form)', name: 'form'}
+  .alert.alert-danger{'ng-repeat' => 'error in errors'} {{error}} 
+  .form-group{'ng-class' => '!form.title.$valid ? "has-error" : ""'}
+    %label Title
+    %input.form-control{name: 'title', placeholder: 'Title', 'ng-model' => 'article.title', 'ng-required' => true, 'ng-minlength' => 5}
+    %span.error{'ng-show' => 'form.title.$error.minlength || form.title.$error.required'} Your title must be at least 5 characters long.
+  .form-group{'ng-class' => 'form.text.$dirty && !form.text.$valid ? "has-error" : ""'}
+    %label Body
+    %textarea.form-control{name: 'text', placeholder: 'Text', rows: 4, 'ng-required' => true, 'ng-minlength' => 10, 'ng-model' => 'article.text'}
+    %span.error{'ng-show' => 'form.text.$error.minlength || form.text.$error.required'} Your article text must be at least 10 characters long.
+    %br
+  %input.btn.btn-success{type: 'submit'}
+
+%a.btn.btn-danger{type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}'} Back

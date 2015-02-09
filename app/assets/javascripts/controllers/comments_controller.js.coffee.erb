@@ -5,18 +5,12 @@ Blog.controller('CommentController', ($scope, $routeParams, Article, Comment) ->
     $scope.comment = new Comment(article_id: $scope.article_id)
 
   $scope.createComment = ($form) ->
-    if ($form.$valid)
-      $scope.comment.$save().then (comment) ->
-        $scope.$parent.article.comments.push(comment)
-        $scope.comment = new Comment(article_id: $scope.article_id)
-        $scope.errors = []
-      .catch (response) ->
-        $scope.errors = []
-        angular.forEach response.data, (value, key) ->
-          errs = value.join(", ")
-          $scope.errors.push(key + ': ' + errs)
-          if $form[key]?
-            $form[key].$dirty = true
-            $form[key].$setValidity errs, false
+    return unless $form.$valid
+    $scope.comment.$save().then (comment) ->
+      $scope.$parent.article.comments.push(comment)
+      $scope.comment = new Comment(article_id: $scope.article_id)
+      $scope.errors = []
+    .catch (response) ->
+      $scope.handleValidationError(response, $form, $scope)
 )
 

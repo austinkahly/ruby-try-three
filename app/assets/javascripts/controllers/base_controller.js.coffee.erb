@@ -1,0 +1,24 @@
+Blog = angular.module("Blog")
+
+Blog.config ($routeProvider) ->
+  $routeProvider.otherwise(
+    templateUrl: '<%= asset_path('assets/welcome/index.html') %>',
+    controller: 'BaseController'
+)
+
+Blog.controller('BaseController', ($scope, User) ->
+  User.current().$promise.then (user) ->
+    $scope.currentUser = user
+  .catch () ->
+    delete $scope.currentUser
+
+
+  $scope.handleValidationError = (response, $form, $scope) ->
+      $scope.errors = []
+      angular.forEach response.data, (value, key) ->
+        errs = value.join(", ")
+        $scope.errors.push(key + ': ' + errs)
+        if $form[key]?
+          $form[key].$dirty = true
+          $form[key].$setValidity errs, false
+)

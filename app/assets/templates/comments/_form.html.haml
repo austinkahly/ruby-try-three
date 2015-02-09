@@ -1,9 +1,9 @@
 
 %form{'ng-submit' => 'createComment(form)', name: 'form'}
-  %div.alert.alert-danger{'ng-repeat' => 'error in errors'} {{error}} 
-  %div.form-group{name: 'comment', 'ng-class' => '!form.body.$valid ? "has-error" : ""'} 
+  .alert.alert-danger{'ng-repeat' => 'error in errors'} {{error}} 
+  .form-group{name: 'comment', 'ng-class' => '!form.body.$valid ? "has-error" : ""'} 
     %label Comment
     %textarea.form-control{name: 'body', placeholder: 'Comment', 'ng-model' => 'comment.body', rows: 4, 'ng-minlength' => 4}
     %span.error{'ng-show' => 'form.body.$error.minlength'} Your comment must be atleast 4 characters long.
   
-  %input.btn.btn-success{type: 'submit', value: 'post comment'}
+  %input.btn.btn-success{type: 'submit', value: 'Post Comment'}

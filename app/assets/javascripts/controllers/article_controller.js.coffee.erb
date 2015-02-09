@@ -16,7 +16,7 @@ Blog.config ($routeProvider) ->
   )
 
 
-Blog.controller('ArticleController', ($scope, $routeParams, Article, Comment) ->
+Blog.controller('ArticleController', ($scope, $routeParams, $location, Article, Comment) ->
   if $routeParams.id
     $scope.article_id = $routeParams.id
     Article.get(id: $routeParams.id).$promise.then (article) ->
@@ -27,14 +27,20 @@ Blog.controller('ArticleController', ($scope, $routeParams, Article, Comment) ->
   else
     $scope.article = new Article()
 
-  $scope.updateArticle = () ->
-    if ($scope.article.id?)
-      $scope.article.$update()
-    else
-      $scope.article.$save()  
+  $scope.save = ($form) ->
+    return unless $form.$valid
 
-  $scope.deleteArticle = () ->
-    $scope.article.$delete() 
+    if ($scope.article.id?)
+      promise = $scope.article.$update()
+    else
+      promise = $scope.article.$save()
+
+    promise.then (article) ->
+      $scope.errors = []
+      $location.url("/articles")
+
+    .catch (response) ->
+      $scope.handleValidationError(response, $form, $scope)
 
   $scope.deleteComment = (comment) ->
     comment.$delete().then (response) -> 

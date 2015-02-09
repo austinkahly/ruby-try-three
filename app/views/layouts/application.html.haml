@@ -4,7 +4,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body{'ng-app' => "Blog"}
+  %body{'ng-app' => "Blog", 'ng-controller' => 'BaseController'}
     %nav.navbar.navbar-inverse{'ng-controller' => 'HeaderController'}
       .container
         .navbar-header
@@ -16,9 +16,10 @@
               %a{href: root_path + '#'} Home
             %li
               %a{href: root_path + '#/articles'} Articles
+          %ul.nav.navbar-nav.navbar-right{'ng-if' => 'currentUser'}
             %li
-              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "#", role: "button", 'ng-click' => 'markNotificationsAsRead()'} 
-                Notifications 
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "", role: "button", 'ng-click' => 'markNotificationsAsRead()'} 
+                {{ currentUser.email }} 
                 %span.badge {{ notifications.length }}
                 %span.caret{'ng-if' => 'notifications.length > 0'}
               %ul.dropdown-menu{role: "menu", 'ng-if' => 'notifications.length > 0'}

@@ -9,4 +9,13 @@ Blog.config ($routeProvider) ->
 Blog.controller('ArticlesController', ($scope, Article) ->
   $scope.articles = Article.query()
 
+
+  $scope.deleteArticle = (article) ->
+    article.$delete().then (response) ->
+      $scope.articles = _.reject($scope.articles, (article2) -> 
+        article.id is article2.id
+      )
+    .catch (response) ->
+      alert("oh crap")
+
 )
