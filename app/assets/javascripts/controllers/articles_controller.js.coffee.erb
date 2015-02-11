@@ -16,4 +16,9 @@ Blog.controller('ArticlesController', ($scope, Article, Notification) ->
     .catch (response) ->
       alert("oh crap")
 
+  $scope.deleteArticle = (article, index) ->
+    article.$delete().then (response) ->
+      $scope.articles.splice(index, 1)
+    .catch (response) ->
+      alert("shoot")
 )

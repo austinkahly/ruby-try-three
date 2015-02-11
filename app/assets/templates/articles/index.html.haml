@@ -16,5 +16,4 @@
           .div.col-md-3  
             %a.btn.btn-success{type: 'button', 'ng-href' => '#/articles/{{article.id}}'} View Article
             %a.btn.btn-warning{'ng-if' => 'article.can_edit', type: 'button', 'ng-href' => root_path + '#/articles/{{article.id}}/edit'} Edit Article
-            %span.glyphicon.glyphicon-remove-sign.btn.btn-danger{'ng-if' => 'article.can_destroy', type: 'button', 'ng-click' => 'deleteArticle(article)'}
-        
+            %span.glyphicon.glyphicon-remove-sign.btn.btn-danger{'ng-if' => 'article.can_destroy', type: 'button', 'ng-click' => 'deleteArticle(article, $index)'}

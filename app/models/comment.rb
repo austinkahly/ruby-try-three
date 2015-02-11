@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   has_many      :notifications,
+                dependent: :destroy,
                 inverse_of: :comment
 
   belongs_to    :article, 
@@ -26,7 +27,7 @@ class Comment < ActiveRecord::Base
         comment_id: self.id,
         read: false
       )
-      UserMailer.comment_create(article.user).deliver
+      UserMailer.delay.comment_create(article.user.id)
     end
   end
 end

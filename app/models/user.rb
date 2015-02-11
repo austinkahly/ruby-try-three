@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
                 inverse_of: :user
 
   has_many      :notifications,
+                dependent: :destroy,
                 inverse_of: :user
 
   belongs_to    :role, 
