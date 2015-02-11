@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   root to: 'welcome#index'
   get 'welcome/index'

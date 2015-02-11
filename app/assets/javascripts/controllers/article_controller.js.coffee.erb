@@ -42,11 +42,9 @@ Blog.controller('ArticleController', ($scope, $routeParams, $location, Article, 
     .catch (response) ->
       $scope.handleValidationError(response, $form, $scope)
 
-  $scope.deleteComment = (comment) ->
+  $scope.deleteComment = (comment, index) ->
     comment.$delete().then (response) -> 
-      $scope.article.comments = _.reject($scope.article.comments, (comment2) -> 
-        comment.id is comment2.id
-      )
+      $scope.article.comments.splice(index, 1)
     .catch (response) ->
       alert("oh crap")
 

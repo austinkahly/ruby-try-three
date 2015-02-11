@@ -1,5 +1,5 @@
 class CommentSerializer < BaseSerializer
-  attributes :id, :body, :can_edit, :can_destroy
+  attributes :id, :user_id, :article_id, :body, :can_edit, :can_destroy
 
   def can_edit
     can?(:update, object)

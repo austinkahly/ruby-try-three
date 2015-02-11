@@ -15,8 +15,6 @@ Blog.controller('BaseController', ($scope, User, Notification) ->
   .catch () ->
     delete $scope.currentUser
 
-
-
   $scope.markedAsRead = false
   $scope.markNotificationsAsRead = () ->
     if !$scope.markedAsRead
