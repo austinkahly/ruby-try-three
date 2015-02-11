@@ -21,13 +21,13 @@ class Comment < ActiveRecord::Base
   private
 
   def create_notification
-    if (article.user_id != self.user.id)
+    if (article.user_id != user_id)
       notification = Notification.create!(
         user_id: article.user_id,
-        comment_id: self.id,
+        comment_id: id,
         read: false
       )
-      UserMailer.delay.comment_create(article.user.id)
+      UserMailer.delay.comment_create(article.user_id)
     end
   end
 end

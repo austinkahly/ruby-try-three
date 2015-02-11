@@ -11,7 +11,7 @@
     .div.row{role: "presentation", 'ng-repeat' => 'article in articles'}
       .div.panel.panel-default
         .div.panel-body
-          .div.col-md-2 {{article.title}}
+          .h5.col-md-2 {{article.title}}
           .div.col-md-7 {{article.text}}
           .div.col-md-3  
             %a.btn.btn-success{type: 'button', 'ng-href' => '#/articles/{{article.id}}'} View Article
