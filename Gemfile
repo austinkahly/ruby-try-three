@@ -45,6 +45,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails_serve_static_assets'
+gem 'rails_stdout_logging'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
