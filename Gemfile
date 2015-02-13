@@ -24,6 +24,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'cancancan', '~> 1.10'
 gem 'angularjs-rails', '~> 1.2.22'
+gem 'sidekiq'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
