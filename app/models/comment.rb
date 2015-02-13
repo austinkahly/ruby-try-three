@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   has_many      :notifications,
+                dependent: :destroy,
                 inverse_of: :comment
 
   belongs_to    :article, 
@@ -20,11 +21,13 @@ class Comment < ActiveRecord::Base
   private
 
   def create_notification
-    notification = Notification.create!(
-      user_id: article.user_id,
-      comment_id: self.id,
-      read: false
-    )
-    UserMailer.comment_create(article.user).deliver
+    if (article.user_id != user_id)
+      notification = Notification.create!(
+        user_id: article.user_id,
+        comment_id: id,
+        read: false
+      )
+      UserMailer.delay.comment_create(article.user_id)
+    end
   end
 end
